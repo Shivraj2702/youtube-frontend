@@ -3,7 +3,7 @@ import { timeAgo } from "../helpers/timeAgo";
 import { Like, Button } from "./index";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { toggleSubscription } from "../store/Slices/subscriptionSlice";
+import { toggleSubscription } from "../store/Slice/subscription";
 
 function Description({
     title,

@@ -1,6 +1,6 @@
 import React from "react";
 import { formatDuration, timeAgo } from "../helpers/timeAgo";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function VideoList({
     key,
@@ -13,7 +13,7 @@ function VideoList({
     createdAt,
     videoId,
 }) {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleAvatarClick = (e) => {
         e.stopPropagation();
@@ -24,7 +24,7 @@ function VideoList({
         <>
             <div key={key}
                 className="w-full sm:p-2 cursor-pointer"
-                // onClick={() => navigate(`/watch/${videoId}`)}
+                onClick={() => navigate(`/watch/${videoId}`)}
             >
                 <div className="relative sm:h-60 h-48">
                     <img

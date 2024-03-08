@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { BiSolidLike, BiSolidDislike } from "../components/icons";
+import { BiSolidLike, BiSolidDislike } from "./icons";
 import {
     toggleCommentLike,
     toggleTweetLike,
     toggleVideoLike,
-} from "../store/Slices/likeSlice";
+} from "../store/Slice/like";
 
 function Like({ isLiked, likesCount = 0, tweetId, commentId, videoId, size }) {
     const dispatch = useDispatch();

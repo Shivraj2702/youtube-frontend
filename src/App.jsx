@@ -5,6 +5,7 @@ import { AuthLayout } from './components'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
 import {getCurrentUser} from './store/Slice/authSlice'
+import VideoDetail from './Pages/VideoDetail'
 
 
 function App() {
@@ -29,8 +30,14 @@ function App() {
                 </AuthLayout>
               }
           />
-
-      
+            <Route
+                    path="/watch/:videoId"
+                    element={
+                        <AuthLayout authentication>
+                            <VideoDetail />
+                        </AuthLayout>
+                    }
+                />
       </Route>
     </Routes>
     </>
