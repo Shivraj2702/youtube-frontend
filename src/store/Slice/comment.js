@@ -15,7 +15,7 @@ export const createAComment = createAsyncThunk(
     async ({ videoId, content }) => {
         try {
             console.log({ videoId, content });
-            const response = await axiosInstance.post(`/comment/${videoId}`, {
+            const response = await axiosInstance.post(`/comments/${videoId}`, {
                 content,
             });
             return response.data.data;
@@ -31,7 +31,7 @@ export const editAComment = createAsyncThunk(
     async ({ commentId, content }) => {
         try {
             const response = await axiosInstance.patch(
-                `/comment/c/${commentId}`,
+                `/comments/c/${commentId}`,
                 { content }
             );
             toast.success(response.data?.message);
@@ -48,7 +48,7 @@ export const deleteAComment = createAsyncThunk(
     async (commentId) => {
         try {
             const response = await axiosInstance.delete(
-                `/comment/c/${commentId}`
+                `/comments/c/${commentId}`
             );
             toast.success(response.data.message);
             console.log(response.data.data);
@@ -63,7 +63,7 @@ export const deleteAComment = createAsyncThunk(
 export const getVideoComments = createAsyncThunk(
     "getVideoComments",
     async ({ videoId, page, limit }) => {
-        const url = new URL(`${BASE_URL}/comment/${videoId}`);
+        const url = new URL(`${BASE_URL}/comments/${videoId}`);
         if (page) url.searchParams.set("page", page);
         if (limit) url.searchParams.set("limit", limit);
 
@@ -91,7 +91,8 @@ const commentSlice = createSlice({
         });
         builder.addCase(getVideoComments.fulfilled, (state, action) => {
             state.loading = false;
-            state.comments = [...state.comments, ...action.payload.docs];
+            const newComments = [action.payload] || []
+            state.comments = [...state.comments, ...newComments];
             state.totalComments = action.payload.totalDocs;
             state.hasNextPage = action.payload.hasNextPage;
         });

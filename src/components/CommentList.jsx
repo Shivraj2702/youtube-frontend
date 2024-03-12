@@ -14,7 +14,7 @@ function CommentsList({
     isLiked,
     likesCount,
 }) {
-    const avatar2 = useSelector((state) => state.auth?.userData?.avatar.url);
+    const avatar2 = useSelector((state) => state.auth?.userData?.avatar);
     const authUsername = useSelector((state) => state.auth?.userData?.username);
     const dispatch = useDispatch();
 

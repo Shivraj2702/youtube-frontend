@@ -1,9 +1,10 @@
 import InfiniteScroll from "./InfiniteScroll";
 import VideoList from './VideoList'
-import NoVidoeFound from './NovideoFound'
+import  NoVideosFound from "./NovideoFound"
 import Container from "./Container"
 import Login from "./Login"
 import Signup from './Signup'
+import EditAvatar from "./EditAvatar";
 import AuthLayout from "./AuthLayout"
 import Sidebar from "./Siderbar";
 import Search from "./Search"
@@ -21,16 +22,35 @@ import Navbar from "./Navbar";
 import DeleteConfirmation from "./DeleteConfirmation";
 import Edit from "./Edit";
 import Like from "./Like"
+import ChannelHeader from "./Channel/ChannelHeader";
+import ChannelNavigate from "./Channel/ChannelNavigate";
+import HeaderSection from "./dashboad/HeaderSection";
+import StatsSection from "./dashboad/StatsSection";
+import VideoTable from "./dashboad/Videotable";
+import UploadVideo from "./UploadVideo";
+import UploadingVideo from "./UploadigVideo";
+import EditVideo from "./EditVideo";
+import Input2 from "./Input2";
 
 export {
+    Input2,
+    UploadVideo,
+    EditAvatar,
+    EditVideo,
+    UploadingVideo,
     InfiniteScroll,
+    ChannelHeader,
+    HeaderSection,
+    VideoTable,
+    ChannelNavigate,
+    StatsSection,
     Edit,
     Like,
     DeleteConfirmation,
     Input,
     LoginPopup,
     VideoList,
-    NoVidoeFound,
+    NoVideosFound,
     Container,
     Login,
     Signup,
@@ -41,6 +61,5 @@ export {
     Video,
     Description,
     Spinner,
-    Navbar,
-    
+    Navbar,   
 }

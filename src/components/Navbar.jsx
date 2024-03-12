@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Search, Button, Logo, SearchForSmallScreen } from "./index.js";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+``
 import {
     IoCloseCircleOutline,
     BiLike,
@@ -13,17 +13,21 @@ import {
     SlMenu,
     
 } from "./icons.js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getCurrentUser } from '../store/Slice/authSlice.js';
 
 function Navbar() {
-
+    const dispatch = useDispatch()
     const [toggleMenu, setToggleMenu] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
     const authStatus = useSelector((state) => state.auth.status);
     const username = useSelector((state) => state.auth?.userData?.username);
-    const profileImg = useSelector((state) => state.auth.userData?.avatar);
-
+    const profileImg = useSelector((state) => state.auth.userData?.avata);
+    
+    useEffect(() => {
+        dispatch(getCurrentUser())
+    })
     const sidePanelItems = [
         {
             icon: <BiLike size={25} />,
@@ -82,6 +86,7 @@ function Navbar() {
                             alt="profileImg"
                             className="rounded-full w-10 h-10 object-cover"
                         />
+                        <h6>{username}</h6>
                     </div>
                 ) : (
                     <div className="space-x-2 sm:block hidden">

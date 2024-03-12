@@ -80,7 +80,7 @@ function Sidebar() {
                                 to={item.url}
                                 key={item.title}
                                 className={({ isActive }) =>
-                                    isActive ? "bg-purple-500" : "text-black"
+                                    isActive ? "bg-purple-500" : ""
                                 }
                             >
                                 <div className="flex items-center gap-2 justify-center sm:justify-start hover:bg-purple-500 cursor-pointer py-1 px-2 border border-slate-600">

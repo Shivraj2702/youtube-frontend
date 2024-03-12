@@ -24,7 +24,7 @@ export const userChannelProfile = createAsyncThunk(
 
 export const getWatchHistory = createAsyncThunk("getWatchHistory",  async () => {
         try {
-            const response = await axiosInstance.get("users/watch-history")
+            const response = await axiosInstance.get("/users/watch-history")
             return response.data.data
         } catch (error) {
             toast.error(error?.response?.data?.error);

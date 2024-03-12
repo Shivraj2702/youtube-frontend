@@ -3,7 +3,6 @@ import { formatDuration, timeAgo } from "../helpers/timeAgo";
 import { useNavigate } from "react-router-dom";
 
 function VideoList({
-    key,
     thumbnail,
     duration,
     title,
@@ -22,7 +21,7 @@ function VideoList({
 
     return (
         <>
-            <div key={key}
+            <div 
                 className="w-full sm:p-2 cursor-pointer"
                 onClick={() => navigate(`/watch/${videoId}`)}
             >

@@ -9,7 +9,6 @@ import {
     Description,
     Spinner,
     InfiniteScroll,
-    Navbar,
 } from "../components";
 import {
     cleanUpComments,
@@ -25,7 +24,7 @@ function VideoDetail() {
     const hasNextPage = useSelector((state) => state.comment?.hasNextPage);
     const loading = useSelector((state) => state.comment?.loading);
     const [page, setPage] = useState(1);
-
+ console.log(videoId)
     useEffect(() => {
         if (videoId) {
             dispatch(getVideoById({ videoId }));
@@ -42,17 +41,17 @@ function VideoDetail() {
         }
     }, [page, loading, hasNextPage, dispatch, videoId]);
 
+
     return (
         <>
-            <Navbar />
             <Video
                 src={video?.videoFile}
                 poster={video?.thumbNail}
             />
             <Description
-                avatar={video?.owner?.avatar}
-                channelName={video?.owner?.username}
-                createdAt={video?.createdAt}
+                avatar={ video?.owner?.avatar }
+                channelName={ video?.owner?.username }
+                createdAt={ video?.createdAt }
                 description={video?.description}
                 isSubscribed={video?.owner?.isSubscribed}
                 likesCount={video?.likesCount}
@@ -65,7 +64,7 @@ function VideoDetail() {
                 channelId={video?.owner?._id}
             />
             <div className="text-white font-semibold sm:px-5 px-3">
-                {totalComments} Comments
+                { totalComments } Comments
             </div>
             <TweetAndComment
                 comment={true}
@@ -73,13 +72,13 @@ function VideoDetail() {
             />
             <InfiniteScroll
                 fetchMore={fetchMoreComments}
-                hasNextPage={hasNextPage}
+                hasNextPage={ hasNextPage }
             >
                 <div className="w-full sm:max-w-4xl">
                     {comments?.map((comment) => (
                         <CommentList
                             key={comment?._id}
-                            avatar={comment?.owner?.avatar?.url}
+                            avatar={comment?.owner?.avatar}
                             commentId={comment?._id}
                             content={comment?.content}
                             createdAt={comment?.createdAt}

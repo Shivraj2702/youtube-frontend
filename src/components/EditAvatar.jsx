@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdClose, MdOutlineCloudUpload } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { updateAvatar, updateCoverImg } from "../store/Slices/authSlice";
+import { updateAvatar, updateCoverImg } from "../store/Slice/authSlice";
 
 function EditAvatar({ cover }) {
     const [isOpen, setIsOpen] = useState(false);

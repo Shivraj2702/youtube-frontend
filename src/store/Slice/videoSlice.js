@@ -31,9 +31,7 @@ export const getAllVideos = createAsyncThunk(
             }
             
          const response = await axiosInstance.get(url);
-            
-            
-            return response.data.data;
+               return response.data.data;
         } catch (error) {
             toast.error(error?.response?.data?.error);
             throw error;
@@ -46,12 +44,14 @@ export const publishAvideo = createAsyncThunk("publishAvideo", async (data) => {
     formData.append("title", data.title);
     formData.append("description", data.description);
     formData.append("videoFile", data.videoFile[0]);
-    formData.append("thumbnail", data.thumbnail[0]);
+    formData.append("thumbNail", data.thumbNail[0]);
 
     try {
         const response = await axiosInstance.post("/videos", formData);
         toast.success(response?.data?.message);
+        console.log(response.data.data)
         return response.data.data;
+        
     } catch (error) {
         toast.error(error?.response?.data?.error);
         throw error;
@@ -84,7 +84,7 @@ export const deleteAVideo = createAsyncThunk(
     "deleteAVideo",
     async (videoId) => {
         try {
-            const response = await axiosInstance.delete(`/videos/v/${videoId}`);
+            const response = await axiosInstance.delete(`/videos/${videoId}`);
             toast.success(response?.data?.message);
             return response.data.data;
         } catch (error) {
@@ -98,7 +98,7 @@ export const getVideoById = createAsyncThunk(
     "getVideoById",
     async ({ videoId }) => {
         try {
-            const response = await axiosInstance.get(`/videos/v/${videoId}`);
+            const response = await axiosInstance.get(`/videos/${videoId}`);
             return response.data.data;
         } catch (error) {
             toast.error(error?.response?.data?.error);
@@ -112,7 +112,7 @@ export const togglePublishStatus = createAsyncThunk(
     async (videoId) => {
         try {
             const response = await axiosInstance.patch(
-                `/video/toggle/publish/${videoId}`
+                `/videos/toggle/publish/${videoId}`
             );
             toast.success(response.data.message);
             return response.data.data.isPublished;

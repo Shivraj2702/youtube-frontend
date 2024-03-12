@@ -14,8 +14,6 @@ export const store = configureStore({
       user: userSliceReducer,
       video: videoSliceReducer,
       auth: authSliceReducer,
-      user: userSliceReducer,
-      video: videoSliceReducer,
       subscription: subscriptionSlice,
       like: likeSlice,
       tweet: tweetSlice,
