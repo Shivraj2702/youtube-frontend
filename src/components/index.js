@@ -9,6 +9,7 @@ import AuthLayout from "./AuthLayout"
 import Sidebar from "./Siderbar";
 import Search from "./Search"
 import Button from "./Button"
+import TweetsList from "./TweetsList";
 import Logo from "./Logo"
 import SearchForSmallScreen from './SearchForSmallScreen'
 import Input from "./Input";
@@ -31,8 +32,11 @@ import UploadVideo from "./UploadVideo";
 import UploadingVideo from "./UploadigVideo";
 import EditVideo from "./EditVideo";
 import Input2 from "./Input2";
+import Avatar from './Avatar'
 
 export {
+    TweetsList,
+    Avatar,
     Input2,
     UploadVideo,
     EditAvatar,

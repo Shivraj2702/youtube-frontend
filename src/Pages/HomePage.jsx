@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllVideos, makeVideosNull } from "../store/Slice/videoSlice";
 import { VideoList, Container, InfiniteScroll } from "../components";
 import HomeSkeleton from "../Skelton/HomeSkelton";
+import { v4 as uuidv4 } from 'uuid';
+
+
+
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -13,8 +17,10 @@ function HomePage() {
   );
   const [page, setPage] = useState(1);
 
+  const uniqueId = uuidv4();
+
   useEffect(() => {
-    dispatch(makeVideosNull());
+  
     dispatch(getAllVideos({}));
 
     return () => dispatch(makeVideosNull());
@@ -27,8 +33,6 @@ function HomePage() {
     }
   }, [page, hasNextPage, dispatch]);
 
-  
-
   return (
     <Container>
       <InfiniteScroll fetchMore={fetchMoreVideos} hasNextPage={hasNextPage}>
@@ -36,7 +40,7 @@ function HomePage() {
           {videos.map((video) => (
             
               <VideoList
-              key={video._id}
+                key={video._id}
                 videoId={video._id}
                 avatar={video.ownerDetails.avatar}
                 duration={video.duration}

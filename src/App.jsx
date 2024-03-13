@@ -12,6 +12,11 @@ import History from './Pages/History'
 import LikedVideos from './Pages/LikedVideo'
 import SearchVideos from './Pages/Searchvideos'
 import Channel from './Pages/Channel/Channel'
+import ChannelVideos from './Pages/Channel/ChannelVideo'
+import ChannelPlaylist from './Pages/Channel/ChannelPlaylist'
+import ChannelSubscribers from './Pages/Channel/ChannelSubscriber'
+import ChannelTweets from './Pages/Channel/ChannelTweets'
+import Subscription from './store/Slice/subscription'
 
 
 function App() {
@@ -52,7 +57,41 @@ function App() {
                     <Channel/>
                 </AuthLayout>
             }
-         ></Route>
+         >
+                <Route
+                    path="videos"
+                    element={
+                        <AuthLayout authentication>
+                                <ChannelVideos/>
+                        </AuthLayout>
+                            }
+                />
+                        <Route
+                            path="playlists"
+                            element={
+                                <AuthLayout authentication>
+                                    <ChannelPlaylist/>
+                                </AuthLayout>
+                            }
+                        />
+                         <Route
+                            path="subscribed"
+                            element={
+                                <AuthLayout authentication={false}>
+                                    <ChannelSubscribers/>
+                                </AuthLayout>
+                            }
+                        />
+                        <Route
+                            path="tweets"
+                            element={
+                                <AuthLayout authentication={false}>
+                                    <ChannelTweets/>
+                                </AuthLayout>
+                            }
+                        />
+
+         </Route>
                  <Route
                     path="/watch/:videoId"
                     element={
@@ -102,6 +141,15 @@ function App() {
                         </AuthLayout>
                     }
                 />
+
+                    <Route
+                        path="/subscriptions"
+                        element={
+                            <AuthLayout authentication>
+                                <Subscription/>
+                            </AuthLayout>
+                        }
+                    />
 
       </Route>
     </Routes>

@@ -148,6 +148,7 @@ const authSlice = createSlice({
             state.loading = true;
         });
         builder.addCase(userLogin.fulfilled, (state, action) => {
+            
             state.loading = false;
             state.status = true;
             state.userData = action.payload;
@@ -164,6 +165,7 @@ const authSlice = createSlice({
             state.loading = true;
         });
         builder.addCase(getCurrentUser.fulfilled, (state, action) => {
+        
             state.loading = false;
             state.status = true;
             state.userData = action.payload;

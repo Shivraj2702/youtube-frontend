@@ -17,17 +17,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getCurrentUser } from '../store/Slice/authSlice.js';
 
+
 function Navbar() {
     const dispatch = useDispatch()
     const [toggleMenu, setToggleMenu] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
     const authStatus = useSelector((state) => state.auth.status);
-    const username = useSelector((state) => state.auth?.userData?.username);
-    const profileImg = useSelector((state) => state.auth.userData?.avata);
-    
+    const profileImg = useSelector((state) => state.auth.userData?.avatar);
+    const username = useSelector((state) => state.auth.userData?.username);
+
     useEffect(() => {
-        dispatch(getCurrentUser())
-    })
+        const fetchUserData = async () => {
+            console.log("fetching ")
+            await dispatch(getCurrentUser());
+            console.log("fetched...")
+            
+        };
+        fetchUserData()
+    }, [dispatch]);
+    
     const sidePanelItems = [
         {
             icon: <BiLike size={25} />,
@@ -86,7 +94,7 @@ function Navbar() {
                             alt="profileImg"
                             className="rounded-full w-10 h-10 object-cover"
                         />
-                        <h6>{username}</h6>
+                        <h6 className=' text-white'>{username}</h6>
                     </div>
                 ) : (
                     <div className="space-x-2 sm:block hidden">

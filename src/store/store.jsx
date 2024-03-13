@@ -1,20 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authSliceReducer from "./Slice/authSlice.js"
-import userSliceReducer from "./Slice/userSlice.js";
-import videoSliceReducer from "./Slice/videoSlice.js";
-import subscriptionSlice from "./Slice/subscription.js";
+import authSlice from "./Slice/authSlice.js"
+import userSlice from "./Slice/userSlice.js";
+import videoSlice from "./Slice/videoSlice.js";
+import subscription from "./Slice/subscription.js";
 import likeSlice from "./Slice/like.js";
 import tweetSlice from "./Slice/tweetSlice.js";
 import commentSlice from "./Slice/comment.js";
 import dashboardSlice from "./Slice/dashboard.js";
 import playlistSlice from "./Slice/playlist.js";
 
-export const store = configureStore({
+ const store = configureStore({
     reducer: {
-      user: userSliceReducer,
-      video: videoSliceReducer,
-      auth: authSliceReducer,
-      subscription: subscriptionSlice,
+      user: userSlice,
+      video: videoSlice,
+      auth: authSlice,
+      subscription: subscription,
       like: likeSlice,
       tweet: tweetSlice,
       comment: commentSlice,
@@ -22,3 +22,5 @@ export const store = configureStore({
       playlist: playlistSlice
     }
   })
+
+  export default store
