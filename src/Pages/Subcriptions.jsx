@@ -9,14 +9,15 @@ function MySubscriptions() {
     const subscriptions = useSelector((state) => state.subscription?.mySubscriptions);
     const subscriberId = useSelector((state) => state.auth?.userData?._id);
 
+
     useEffect(() => {
-        if (!subscriptions) {
+        if (subscriptions) {
             dispatch(getSubscribedChannels(subscriberId));
         }
         window.scrollTo(0, 0);
     }, [dispatch, subscriberId, subscriptions]);
 
-    console.log(subscriptions, "subscriptions");
+
 
     return (
         <>

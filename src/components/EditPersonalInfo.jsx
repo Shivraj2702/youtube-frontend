@@ -3,6 +3,7 @@ import { Input2, Button } from "./index";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserDetails } from "../store/Slice/authSlice";
+import { useNavigate } from "react-router-dom";
 
 
 function EditPersonalInfo() {
@@ -14,6 +15,7 @@ function EditPersonalInfo() {
     } = useForm();
     const dispatch = useDispatch();
     const auth = useSelector((state) => state.auth?.userData);
+    const navigate = useNavigate()
 
     useEffect(() => {
         setValue("fullName", auth?.fullName);
@@ -22,6 +24,7 @@ function EditPersonalInfo() {
 
     const saveChanges = (data) => {
         dispatch(updateUserDetails(data));
+        navigate('/edit')
     };
 
     const reset = (e) => {

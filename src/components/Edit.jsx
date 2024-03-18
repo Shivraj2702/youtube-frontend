@@ -9,7 +9,7 @@ function Edit({ initialContent, onCancel, onSave }) {
 
     const handleSave = () => {
         onSave(editedContent);
-        navigate(`/channel/${username}`)
+        navigate('/')
     };
 
     return (
