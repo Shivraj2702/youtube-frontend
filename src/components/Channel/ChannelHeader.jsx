@@ -55,7 +55,7 @@ function ChannelHeader({
                             )}
                         </div>
                     ) : (
-                        <div className="sm:h-40 h-28 w-full border-slate-600 border-b bg-black"></div>
+                        <div className="sm:h-40 h-28 w-full border-slate-600 border-b bg-slate-400 flex justify-center align items-center">Cover Image</div>
                     )}
                 </section>
                 {/*channel details section  */}

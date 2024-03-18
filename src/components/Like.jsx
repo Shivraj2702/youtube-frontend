@@ -46,7 +46,6 @@ function Like({ isLiked, likesCount = 0, tweetId, commentId, videoId, size }) {
                     }`}
                 />
                 <span className="text-xs mr-3">{localLikesCount}</span>
-                <BiSolidDislike size={size} />
             </div>
         </>
     );

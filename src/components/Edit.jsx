@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import {  useSelector } from "react-redux";
 function Edit({ initialContent, onCancel, onSave }) {
     const [editedContent, setEditedContent] = useState(initialContent);
 
+    const username = useSelector((state) => state.auth.userData)
+    const navigate = useNavigate()
+
     const handleSave = () => {
         onSave(editedContent);
+        navigate(`/channel/${username}`)
     };
 
     return (

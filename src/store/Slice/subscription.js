@@ -61,13 +61,16 @@ const subscriptionSlice = createSlice({
         builder.addCase(toggleSubscription.pending, (state) => {
             state.loading = true;
         });
+        
         builder.addCase(toggleSubscription.fulfilled, (state, action) => {
             state.loading = false;
-            state.subscribed = action.payload;
+            state.subscribed = action.payload;      
         });
+
         builder.addCase(getUserChannelSubscribers.pending, (state) => {
             state.loading = true;
         });
+
         builder.addCase(
             getUserChannelSubscribers.fulfilled,
             (state, action) => {
@@ -75,14 +78,17 @@ const subscriptionSlice = createSlice({
                 state.channelSubscribers = action.payload;
             }
         );
+
         builder.addCase(getSubscribedChannels.pending, (state) => {
             state.loading = true;
         });
+
         builder.addCase(getSubscribedChannels.fulfilled, (state, action) => {
             state.loading = false;
             state.mySubscriptions = action.payload.filter(
             (subscription) => subscription?.subscribedChannel?.latestVideo
             );
+            
         });
     },
 });

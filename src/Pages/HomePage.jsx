@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllVideos, makeVideosNull } from "../store/Slice/videoSlice";
 import { VideoList, Container, InfiniteScroll } from "../components";
 import HomeSkeleton from "../Skelton/HomeSkelton";
-import { v4 as uuidv4 } from 'uuid';
-
-
 
 
 function HomePage() {
@@ -17,7 +14,6 @@ function HomePage() {
   );
   const [page, setPage] = useState(1);
 
-  const uniqueId = uuidv4();
 
   useEffect(() => {
   

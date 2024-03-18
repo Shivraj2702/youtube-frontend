@@ -145,8 +145,6 @@ const videoSlice = createSlice({
             state.videos.docs = [];
             state.videos.docs = action.payload.docs;
             state.videos.hasNextPage = action.payload.hasNextPage;
-    
-
           
         });
         builder.addCase(publishAvideo.pending, (state) => {

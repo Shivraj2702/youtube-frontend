@@ -1,6 +1,6 @@
 import InfiniteScroll from "./InfiniteScroll";
 import VideoList from './VideoList'
-import  NoVideosFound from "./NovideoFound"
+import NoVideosFound from "./NovideoFound"
 import Container from "./Container"
 import Login from "./Login"
 import Signup from './Signup'
@@ -14,6 +14,7 @@ import Logo from "./Logo"
 import SearchForSmallScreen from './SearchForSmallScreen'
 import Input from "./Input";
 import LoginPopup from "./LoginPopup";
+import EditPersonalInfo from "./EditPersonalInfo"
 import CommentList from "./CommentList"
 import TweetAndComment from "./TweetAndComment"
 import Video from "./Video";
@@ -33,11 +34,15 @@ import UploadingVideo from "./UploadigVideo";
 import EditVideo from "./EditVideo";
 import Input2 from "./Input2";
 import Avatar from './Avatar'
+import ChangePassword from "./ChangePassword";
+
 
 export {
     TweetsList,
+    EditPersonalInfo, 
     Avatar,
     Input2,
+    ChangePassword,
     UploadVideo,
     EditAvatar,
     EditVideo,

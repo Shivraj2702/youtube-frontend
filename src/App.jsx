@@ -16,9 +16,10 @@ import ChannelVideos from './Pages/Channel/ChannelVideo'
 import ChannelPlaylist from './Pages/Channel/ChannelPlaylist'
 import ChannelSubscribers from './Pages/Channel/ChannelSubscriber'
 import ChannelTweets from './Pages/Channel/ChannelTweets'
-import Subscription from './store/Slice/subscription'
-
-
+import Subscription from './Pages/Subcriptions'
+import EditChannel from './Pages/EditChannel'
+import {EditPersonalInfo, ChangePassword} from './components'
+import { Toaster } from 'react-hot-toast'
 function App() {
   const dispatch = useDispatch();
 
@@ -92,6 +93,31 @@ function App() {
                         />
 
          </Route>
+           <Route
+                 path="/edit"
+                element={
+                    <AuthLayout authentication>
+                        <EditChannel/>
+                    </AuthLayout>
+                    }
+            >
+                      <Route
+                            path="personalInfo"
+                            element={
+                                <AuthLayout authentication>
+                                    <EditPersonalInfo/>
+                                </AuthLayout>
+                            }
+                        />
+                        <Route
+                            path="password"
+                            element={
+                                <AuthLayout authentication>
+                                    <ChangePassword/>
+                                </AuthLayout>
+                            }
+                        />
+        </Route>
                  <Route
                     path="/watch/:videoId"
                     element={
@@ -153,6 +179,21 @@ function App() {
 
       </Route>
     </Routes>
+
+    <Toaster
+                position="top-right"
+                reverseOrder={true}
+                toastOptions={{
+                    error: {
+                        style: { borderRadius: "0", color: "red" },
+                    },
+                    success: {
+                        style: { borderRadius: "0", color: "green" },
+                    },
+                    duration: 2000,
+                }}
+            />
+        
     </>
   )
 }

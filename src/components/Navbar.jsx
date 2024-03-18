@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Search, Button, Logo, SearchForSmallScreen } from "./index.js";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-``
+
 import {
     IoCloseCircleOutline,
     BiLike,
@@ -28,10 +28,7 @@ function Navbar() {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            console.log("fetching ")
             await dispatch(getCurrentUser());
-            console.log("fetched...")
-            
         };
         fetchUserData()
     }, [dispatch]);
@@ -44,7 +41,7 @@ function Navbar() {
         },
         {
             icon: <HiOutlineVideoCamera size={25} />,
-            title: "My Content",
+            title: "Your Channel",
             url: `/channel/${username}`,
         },
         {

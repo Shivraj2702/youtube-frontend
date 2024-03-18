@@ -31,6 +31,7 @@ export const userLogin = createAsyncThunk("login", async (data) => {
     try {
         const response = await axiosInstance.post("/users/login", data);
         return response.data.data.user;
+        
     } catch (error) {
         toast.error(error?.response?.data?.error);
         throw error;
@@ -121,11 +122,11 @@ export const updateUserDetails = createAsyncThunk(
     async (data) => {
         try {
             const response = await axiosInstance.patch(
-                "/users/update-user",
+                "/users/update-account",
                 data
             );
             toast.success("Updated details successfully!!!");
-            return response.data;
+            return response.data.data;
         } catch (error) {
             toast.error(error?.response?.data?.error);
             throw error;

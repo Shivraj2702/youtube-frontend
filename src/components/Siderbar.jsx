@@ -32,7 +32,7 @@ function Sidebar() {
         },
         {
             icon: <HiOutlineVideoCamera size={25} />,
-            title: "My Content",
+            title: "Your Channel",
             url: `/channel/${username}`,
         },
         {

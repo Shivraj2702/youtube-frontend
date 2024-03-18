@@ -29,10 +29,10 @@ function History() {
                         {videos.map((video) => (
                             <VideoList
                                 key={video._id}
-                                avatar={video.owner?.avatar.url}
+                                avatar={video.owner?.avatar}
                                 duration={video.duration}
                                 title={video.title}
-                                thumbnail={video.thumbnail?.url}
+                                thumbnail={video.thumbNail}
                                 createdAt={video.createdAt}
                                 views={video.views}
                                 channelName={video.owner.username}

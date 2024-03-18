@@ -1,8 +1,8 @@
 import React from "react";
-import { Input2, Button } from "../components";
+import { Input2, Button } from "./index";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { changePassword } from "../store/Slices/authSlice";
+import { changePassword } from "../store/Slice/authSlice";
 
 function ChangePassword() {
     const {
@@ -18,7 +18,7 @@ function ChangePassword() {
         dispatch(
             changePassword({
                 oldPassword: data?.oldPassword,
-                newPassword: data?.oldPassword,
+                newPassword: data?.newPassword,
             })
         );
         resetField("oldPassword");

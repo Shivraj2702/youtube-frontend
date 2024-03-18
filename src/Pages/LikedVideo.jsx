@@ -23,7 +23,7 @@ function LikedVideos() {
     if (likedVideos?.length == 0) {
         return <NoVideosFound />;
     }
-
+    console.log(likedVideos)
     return (
         <>
             <Container>
@@ -34,7 +34,7 @@ function LikedVideos() {
                             avatar={video.likedVideo.ownerDetails?.avatar}
                             duration={video.likedVideo.duration}
                             title={video.likedVideo.title}
-                            thumbnail={video.likedVideo.thumbnail}
+                            thumbnail={video.likedVideo.thumbNail}
                             createdAt={video.likedVideo.createdAt}
                             views={video.likedVideo.views}
                             channelName={

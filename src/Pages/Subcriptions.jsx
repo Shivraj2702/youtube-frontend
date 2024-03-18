@@ -6,82 +6,50 @@ import { VideoList, Avatar } from "../components";
 
 function MySubscriptions() {
     const dispatch = useDispatch();
-    const subscriptions = useSelector(
-        (state) => state.subscription?.mySubscriptions
-    );
+    const subscriptions = useSelector((state) => state.subscription?.mySubscriptions);
     const subscriberId = useSelector((state) => state.auth?.userData?._id);
+
     useEffect(() => {
-        if (subscriptions) {
+        if (!subscriptions) {
             dispatch(getSubscribedChannels(subscriberId));
         }
-    }, [dispatch, subscriberId]);
-    window.scrollTo(0, 0);
-    console.log(subscriptions, "subsciption")
-    
+        window.scrollTo(0, 0);
+    }, [dispatch, subscriberId, subscriptions]);
+
+    console.log(subscriptions, "subscriptions");
+
     return (
         <>
             <div className="flex gap-2 p-2 text-white items-center bg-[#222222]">
                 {subscriptions?.map((subscription) => (
-                    <div
-                        key={subscription?.subscribedChannel?._id}
-                        className="flex flex-col items-center overflow-x-scroll"
-                    >
+                    <div key={subscription?.subscribedChannel?._id} className="flex flex-col items-center overflow-x-scroll">
                         <Avatar
                             src={subscription?.subscribedChannel?.avatar}
-                            channelName={
-                                subscription?.subscribedChannel?.username
-                            }
+                            channelName={subscription?.subscribedChannel?.username}
                         />
-                        <h5 className="text-xs">
-                            {subscription?.subscribedChannel?.username}
-                        </h5>
+                        <h5 className="text-xs">{subscription?.subscribedChannel?.username}</h5>
                     </div>
                 ))}
             </div>
 
             <div className="text-white mb-20 sm:mb-0 w-full grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 overflow-y-scroll">
-                {subscriptions?.map((subscription) => (
-                    <Link
-                        to={`/watch/${subscription?.subscribedChannel?.latestVideo?._id}`}
-                        key={subscription?.subscribedChannel?._id}
-                    >
-                        {subscription?.subscribedChannel?.latestVideo && (
-                            <VideoList
-                                key={subscription?.subscribedChannel?._id}
-                                avatar={
-                                    subscription?.subscribedChannel?.avatar
-                                }
-                                duration={
-                                    subscription?.subscribedChannel?.latestVideo
-                                        ?.duration
-                                }
-                                title={
-                                    subscription?.subscribedChannel?.latestVideo
-                                        ?.title
-                                }
-                                thumbnail={
-                                    subscription?.subscribedChannel?.latestVideo
-                                        ?.thumbNail
-                                }
-                                createdAt={
-                                    subscription?.subscribedChannel?.latestVideo
-                                        ?.createdAt
-                                }
-                                views={
-                                    subscription?.subscribedChannel?.latestVideo
-                                        ?.views
-                                }
-                                channelName={
-                                    subscription?.subscribedChannel?.username
-                                }
-                                videoId={
-                                    subscription?.subscribedChannel?.latestVideo
-                                        ?._id
-                                }
-                            />
-                        )}
-                    </Link>
-                ))}
+            {subscriptions?.map((subscription) => (
+                 <Link to={`/watch/${subscription?.subscribedChannel?.latestVideo?._id}`} key={subscription?.subscribedChannel?._id}>
+                     {subscription?.subscribedChannel?.latestVideo && (
+                         <VideoList
+                            key={subscription?.subscribedChannel?.latestVideo?._id}
+                            avatar={subscription?.subscribedChannel?.avatar}
+                            duration={subscription?.subscribedChannel?.latestVideo?.duration}
+                            title={subscription?.subscribedChannel?.latestVideo?.title}
+                            thumbnail={subscription?.subscribedChannel?.latestVideo?.thumbNail}
+                            createdAt={subscription?.subscribedChannel?.latestVideo?.createdAt}
+                            views={subscription?.subscribedChannel?.latestVideo?.views}
+                            channelName={subscription?.subscribedChannel?.username}
+                            videoId={subscription?.subscribedChannel?.latestVideo?._id}
+            />
+        )}
+    </Link>
+))}
             </div>
         </>
     );
