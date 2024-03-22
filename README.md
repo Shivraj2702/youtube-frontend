@@ -6,39 +6,53 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-YouTube Clone
+
+## Youtube clone
+
 This project is a full YouTube clone featuring all the core functionalities such as video uploads, comments, likes, user management, JWT authentication, and more. The project is divided into frontend and backend repositories, with the backend handling data storage, authentication, and other server-side operations.
+## Tech Stack
 
-Features
-User Management: Users can sign up, log in, and manage their profiles.
-Video Uploads: Users can upload videos to the platform.
-Comments: Users can comment on videos.
-Likes: Users can like videos.
-JWT Authentication: Secure authentication using JSON Web Tokens.
-File Uploads: Integration with Cloudinary for file uploads.
-Other Features: (List any additional features here)
-Repositories
+**Client:** React, Redux, TailwindCSS
 
-Backend Repository (Link to the backend repository)
-Technologies Used
+**Server:** Node, Express, MongoDB
 
-Frontend:
-(List frontend technologies and frameworks used, e.g., React, Redux, Tailwind ,etc.)
 
-Backend:
-(List backend technologies and frameworks used, e.g., Node.js, Express.js, MongoDB, etc.)
+## Features
 
-Setup Instructions
-Frontend
-Clone the frontend repository.
-Navigate to the project directory.
-Install dependencies using npm install.
-Configure environment variables, if any.
-Start the development server using npm run dev.
+- User Management: Users can sign up, log in, and    manage their profiles.
+- Video Uploads: Users can upload videos to the platform.
+- Comments: Users can comment on videos.
 
-Backend
-Clone the backend repository.
-Navigate to the project directory.
-Install dependencies using npm install.
-Configure environment variables, including Cloudinary credentials.
-Start the server using npm run dev.
+- Likes: Users can like videos.
+- JWT Authentication: Secure authentication using   
+  JSON  Web Tokens.
+- File Uploads: Integration with Cloudi
+- Cross platform
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Shivraj2702/youtube-frontend.git
+```
+
+Go to the project directory
+
+```bash
+  cd frontend
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
