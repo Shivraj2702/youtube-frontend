@@ -8,6 +8,7 @@ import {
     MdOutlineContactSupport,
     RiHome6Line,
     TbUserCheck,
+    FiLogOut
 } from "./icons";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -98,12 +99,14 @@ function Sidebar() {
                     </div>
 
                     <div className="space-y-4 mb-10">
+                        <button className="w-full" onClick={() => dispatch(userLogout())}>
                         <div className="flex items-center gap-2 justify-center sm:justify-start hover:bg-purple-500 cursor-pointer py-1 px-2 border border-slate-600">
-                            <MdOutlineContactSupport size={25} onClick={() => dispatch(userLogout())}/>
+                            <FiLogOut size={25} />
                             <span className="text-base hidden md:block">
                                 Logout
                             </span>
                         </div>
+                        </button >
                         <div className="flex items-center gap-2 justify-center sm:justify-start hover:bg-purple-500 cursor-pointer py-1 px-2 border border-slate-600">
                             <CiSettings size={25} />
                             <span className="text-base hidden md:block">

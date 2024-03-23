@@ -19,9 +19,11 @@ import { MdOutlineSlowMotionVideo } from "react-icons/md";
 import { RxAvatar } from "react-icons/rx";
 import { FaRegEye, FaRegHeart } from "react-icons/fa";
 import { MdOutlineCloudUpload } from "react-icons/md";
+import { FiLogOut } from 'react-icons/fi'
 
 
 export {
+    FiLogOut,
     IoCloseCircleOutline,
     BiLike,
     HiOutlineVideoCamera,
