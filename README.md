@@ -5,6 +5,19 @@ This project is a full YouTube clone featuring all the core functionalities such
 
 **Client:** React, Redux, TailwindCSS
 
+<<<<<<< HEAD
+=======
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Youtube clone
+
+This project is a full YouTube clone featuring all the core functionalities such as video uploads, comments, likes, user management, JWT authentication, and more. The project is divided into frontend and backend repositories, with the backend handling data storage, authentication, and other server-side operations.
+## Tech Stack
+
+**Client:** React, Redux, TailwindCSS
+
+>>>>>>> 39e0a6431345e447168203e9b25642186f06e302
 **Server:** Node, Express, MongoDB
 
 
@@ -45,4 +58,9 @@ Start the server
 
 ```bash
   npm run dev
+<<<<<<< HEAD
 ```
+=======
+```
+
+>>>>>>> 39e0a6431345e447168203e9b25642186f06e302
