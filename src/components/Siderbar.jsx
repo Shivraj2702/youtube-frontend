@@ -11,6 +11,8 @@ import {
 } from "./icons";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { userLogout } from "../store/Slice/authSlice";
 
 function Sidebar() {
     const username = useSelector((state) => state.auth?.userData?.username);
@@ -70,6 +72,8 @@ function Sidebar() {
         },
     ];
 
+    const dispatch = useDispatch()
+
     return (
         <>
             <div className="sm:block hidden">
@@ -95,9 +99,9 @@ function Sidebar() {
 
                     <div className="space-y-4 mb-10">
                         <div className="flex items-center gap-2 justify-center sm:justify-start hover:bg-purple-500 cursor-pointer py-1 px-2 border border-slate-600">
-                            <MdOutlineContactSupport size={25} />
+                            <MdOutlineContactSupport size={25} onClick={() => dispatch(userLogout())}/>
                             <span className="text-base hidden md:block">
-                                Support
+                                Logout
                             </span>
                         </div>
                         <div className="flex items-center gap-2 justify-center sm:justify-start hover:bg-purple-500 cursor-pointer py-1 px-2 border border-slate-600">

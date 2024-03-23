@@ -15,7 +15,7 @@ import {
 } from "./icons.js";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getCurrentUser } from '../store/Slice/authSlice.js';
+import { getCurrentUser, userLogout } from '../store/Slice/authSlice.js';
 
 
 function Navbar() {
@@ -51,8 +51,8 @@ function Navbar() {
         },
         {
             icon: <CiSettings size={25} />,
-            title: "Settings",
-            url: "/settings",
+            title: "Setting",
+            url: "/setting",
         },
     ]
 
@@ -85,6 +85,7 @@ function Navbar() {
 
                 {/* login and signup butons for larger screens */}
                 {authStatus ? (
+            
                     <div className="rounded-full sm:block hidden">
                         <img
                             src={profileImg}
@@ -92,7 +93,9 @@ function Navbar() {
                             className="rounded-full w-10 h-10 object-cover"
                         />
                         <h6 className=' text-white'>{username}</h6>
+                        
                     </div>
+                  
                 ) : (
                     <div className="space-x-2 sm:block hidden">
                         <Link to={"/login"}>
