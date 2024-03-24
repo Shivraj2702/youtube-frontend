@@ -27,7 +27,7 @@ This project is a full YouTube clone featuring all the core functionalities such
 - Likes: Users can like videos.
 - JWT Authentication: Secure authentication using   
   JSON  Web Tokens.
-- File Uploads: Integration with Cloudi
+- File Uploads: Integration with Cloudinary
 - Cross platform
 
 
