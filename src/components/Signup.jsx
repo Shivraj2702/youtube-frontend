@@ -27,7 +27,7 @@ function SignUp() {
             );
 
             if (loginResult?.type === "login/fulfilled") {
-                navigate("/terms&conditions");
+                navigate("/");
             } else {
                 navigate("/login");
             }
