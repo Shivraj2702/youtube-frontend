@@ -1,9 +1,4 @@
-## Youtube clone
 
-This project is a full YouTube clone featuring all the core functionalities such as video uploads, comments, likes, user management, JWT authentication, and more. The project is divided into frontend and backend repositories, with the backend handling data storage, authentication, and other server-side operations.
-## Tech Stack
-
-**Client:** React, Redux, TailwindCSS
 
 <<<<<<< HEAD
 =======
@@ -16,6 +11,7 @@ This project is a full YouTube clone featuring all the core functionalities such
 ## Tech Stack
 
 **Client:** React, Redux, TailwindCSS
+**Server:** NodeJs, Express ,MongoDB
 
 >>>>>>> 39e0a6431345e447168203e9b25642186f06e302
 **Server:** Node, Express, MongoDB
